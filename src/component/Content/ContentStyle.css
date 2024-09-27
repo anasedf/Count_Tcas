@@ -1,0 +1,72 @@
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+#content .container {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    height: auto;
+    padding: 2em;
+}
+
+#content .-card {
+    background-color: white;
+    border-radius: 10px; /* Maintain rounded corners for the entire card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; /* Ensure the child elements follow the card's rounded corners */
+}
+
+#content .-head {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding: 0.5em;
+    width: 100%;
+}
+
+#content .-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+#content .-time {
+    width: 120px;
+    height: 120px;
+    background-color: #e3e3e3;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;}
+
+#content .-days {
+    font-size: 48px;
+    color: #233142;
+    font-weight: bold;
+}
+
+#content .-time span:last-child {
+    font-size: 18px;
+    color: #555;
+    margin-top: 5px;
+}
+
+#content .-detail {
+    font-size: 18px;
+    color: #233142;
+}

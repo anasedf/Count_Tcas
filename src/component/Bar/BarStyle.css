@@ -1,0 +1,72 @@
+#bar {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#bar .-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+#bar .-up {
+    width: 100px;
+    height: 100px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #233142;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bar .-now {
+    background-color: #e3e3e3;
+    color: black;
+    text-align: center;
+    font-size: 1rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#bar .-text {
+    font-size: 2rem;
+    padding-top: 15px;
+}
+
+#bar .-time {
+    display: flex;  
+    justify-content: center;
+    column-gap: 20px;
+}
+
+#bar .countdown-box {
+    width: 50px; /* ขนาดของกล่องนับถอยหลัง */
+    height: 50px;
+    background-color: white;
+    color: black;
+    font-size: 2rem;
+    font-weight: bold; /* ตัวอักษรหนา */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px; /* ขอบมน */
+}

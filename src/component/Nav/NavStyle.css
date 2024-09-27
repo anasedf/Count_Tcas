@@ -1,0 +1,49 @@
+#nav {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #233142;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#nav .all {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+#nav .-ham {
+    display: flex; /* ใช้ flexbox เพื่อจัดตำแหน่งลูกภายใน */
+    justify-content: center; /* จัดให้อยู่กลางในแนวนอน */
+    align-items: center; /* จัดให้อยู่กลางในแนวตั้ง */
+    width: 50px; /* กำหนดขนาดที่เหมาะสม */
+}
+
+
+#nav .-center {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e3e3e3;
+
+}
+
+#nav .-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px; 
+    
+}
+
+#nav .-link img{
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
