@@ -20,16 +20,16 @@ function Content() {
 
       <section className='container'>
         {parseInt(time.TGAT.days) >= 10 && (
-        <section className='-card'>
-          <section className='-head'>TGAT</section>
-          <section className='-box'>
-            <section className='-time'>
-              <span className='-days'>{time.TGAT.days}</span>
-              <span>วัน</span>
+          <section className='-card'>
+            <section className='-head'>TGAT</section>
+            <section className='-box'>
+              <section className='-time'>
+                <span className='-days'>{time.TGAT.days}</span>
+                <span>วัน</span>
+              </section>
+              <span className='-detail'>8 ธันวาคม 2567</span>
             </section>
-            <span className='-detail'>8 ธันวาคม 2567</span>
           </section>
-        </section>
         )}
       </section>
 
@@ -102,15 +102,16 @@ function Content() {
             <section className='-time'>
               <span className='-days'>{time.TPAT5.days}</span>
               <span>วัน</span>
-              <span className='-detail'>7 ธันวาคม 2567</span>
             </section>
+            <span className='-detail'>7 ธันวาคม 2567</span>
+
           </section>
         </section>
       </section>
 
       <Count onTimeChange={setTime} />
 
-    </section>
+    </section >
 
   )
 }
