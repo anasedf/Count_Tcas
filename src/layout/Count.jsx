@@ -3,46 +3,28 @@ import React, { useEffect, useRef, useState } from 'react';
 const Count = ({ onTimeChange }) => {
   let interval = useRef();
 
-  const [dates, setDates] = useState({
-    TCAS: '',
-    TGAT: '',
-    TPAT1: '',
-    TPAT2: '',
-    TPAT3: '',
-    TPAT4: '',
-    TPAT5: '',
-  });
-
-  const fetchDates = async () => {
-    try {
-      const response = await fetch('http://127.0.0.1:5000/dates'); // ดึงข้อมูลจาก API
-      const data = await response.json();
-      setDates({
-        TCAS: new Date(data.TCAS).getTime(),
-        TGAT: new Date(data.TGAT).getTime(),
-        TPAT1: new Date(data.TPAT1).getTime(),
-        TPAT2: new Date(data.TPAT2).getTime(),
-        TPAT3: new Date(data.TPAT3).getTime(),
-        TPAT4: new Date(data.TPAT4).getTime(),
-        TPAT5: new Date(data.TPAT5).getTime(),
-      });
-    } catch (error) {
-      console.error('Error fetching dates:', error);
-    }
-  };
-
   const startTimer = () => {
+    const dateTCAS = new Date('October 28, 2024 09:00:00').getTime(); 
+    const dateTGAT = new Date('December 8, 2024 09:00:00').getTime();
+    const dateTPAT1 = new Date('December 14, 2024 09:00:00').getTime();
+    const dateTPAT2 = new Date('December 7, 2024 09:00:00').getTime();
+    const dateTPAT3 = new Date('December 8, 2024 09:00:00').getTime();
+    const dateTPAT4 = new Date('December 9, 2024 09:00:00').getTime();
+    const dateTPAT5 = new Date('December 7, 2024 09:00:00').getTime();
+
+
     interval.current = setInterval(() => {
       const now = new Date().toLocaleString('en-US', { timeZone: 'Asia/Bangkok' });
       const currentTimeInThailand = new Date(now).getTime();
 
-      const distanceTCAS = dates.TCAS - currentTimeInThailand;
-      const distanceTGAT = dates.TGAT - currentTimeInThailand;
-      const distanceTPAT1 = dates.TPAT1 - currentTimeInThailand;
-      const distanceTPAT2 = dates.TPAT2 - currentTimeInThailand;
-      const distanceTPAT3 = dates.TPAT3 - currentTimeInThailand;
-      const distanceTPAT4 = dates.TPAT4 - currentTimeInThailand;
-      const distanceTPAT5 = dates.TPAT5 - currentTimeInThailand;
+      const distanceTCAS  = dateTCAS  - currentTimeInThailand;
+      const distanceTGAT  = dateTGAT  - currentTimeInThailand;
+      const distanceTPAT1 = dateTPAT1 - currentTimeInThailand;
+      const distanceTPAT2 = dateTPAT2 - currentTimeInThailand;
+      const distanceTPAT3 = dateTPAT3 - currentTimeInThailand;
+      const distanceTPAT4 = dateTPAT4 - currentTimeInThailand;
+      const distanceTPAT5 = dateTPAT5 - currentTimeInThailand;
+
 
       const calculateTimeLeft = (distance) => {
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -52,28 +34,29 @@ const Count = ({ onTimeChange }) => {
         return { days, hours, minutes, seconds };
       };
 
-      const timeTCAS = calculateTimeLeft(distanceTCAS);
-      const timeTGAT = calculateTimeLeft(distanceTGAT);
+      const timeTCAS  = calculateTimeLeft(distanceTCAS);
+      const timeTGAT  = calculateTimeLeft(distanceTGAT);
       const timeTPAT1 = calculateTimeLeft(distanceTPAT1);
       const timeTPAT2 = calculateTimeLeft(distanceTPAT2);
       const timeTPAT3 = calculateTimeLeft(distanceTPAT3);
       const timeTPAT4 = calculateTimeLeft(distanceTPAT4);
       const timeTPAT5 = calculateTimeLeft(distanceTPAT5);
 
-      if (
-        timeTCAS < 0 &&
-        timeTGAT < 0 &&
-        timeTPAT1 < 0 &&
-        timeTPAT2 < 0 &&
-        timeTPAT3 < 0 &&
-        timeTPAT4 < 0 &&
-        timeTPAT5 < 0
+
+      if (timeTCAS < 0 && 
+        timeTGAT < 0 &&  
+        timeTPAT1 < 0 && 
+        timeTPAT2 < 0 &&  
+        timeTPAT2 < 0 &&  
+        timeTPAT3 < 0 &&  
+        timeTPAT4 < 0 &&  
+        timeTPAT5 < 0 
       ) {
         clearInterval(interval.current);
       } else {
-        onTimeChange({
-          TCAS: timeTCAS,
-          TGAT: timeTGAT,
+        onTimeChange({ 
+          TCAS : timeTCAS,
+          TGAT : timeTGAT,
           TPAT1: timeTPAT1,
           TPAT2: timeTPAT2,
           TPAT3: timeTPAT3,
@@ -85,17 +68,11 @@ const Count = ({ onTimeChange }) => {
   };
 
   useEffect(() => {
-    fetchDates(); // ดึงข้อมูลจาก API เมื่อ component ถูก mount
-  }, []);
-
-  useEffect(() => {
-    if (dates.TCAS) {
-      startTimer(); // เริ่มจับเวลาหลังจากได้ข้อมูลวันที่แล้ว
-    }
+    startTimer();
     return () => {
       clearInterval(interval.current);
-    };
-  }, [dates]);
+    }
+  }, []);
 
   return null;
 };
